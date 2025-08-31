@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d15jrurv3hpew"]
+
+[ext_resource type="Script" uid="uid://dwvqg1o3ss785" path="res://scenes/ui/_components/better label/better_label.gd" id="1_8s57n"]
+
+[node name="BetterLabel" type="RichTextLabel"]
+offset_right = 1.0
+bbcode_enabled = true
+text = "label"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_8s57n")

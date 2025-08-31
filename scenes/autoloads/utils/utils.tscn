@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce5l0buisoe3c"]
+
+[ext_resource type="Script" uid="uid://clxojc6sj2xjh" path="res://scenes/autoloads/utils/utils.gd" id="1_ojvbe"]
+
+[node name="Utils" type="Node"]
+script = ExtResource("1_ojvbe")

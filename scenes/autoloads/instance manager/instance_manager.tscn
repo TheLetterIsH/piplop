@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://muifen86qktl"]
+
+[ext_resource type="Script" uid="uid://y6g1e21wiovh" path="res://scenes/autoloads/instance manager/instance_manager.gd" id="1_ewwmi"]
+
+[node name="InstanceManager" type="Node"]
+script = ExtResource("1_ewwmi")

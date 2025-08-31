@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvprdcd62llld"]
+
+[ext_resource type="Script" uid="uid://d2xbhxa5y57ci" path="res://scenes/game/game.gd" id="1_ar3n7"]
+[ext_resource type="PackedScene" uid="uid://noowbyb8x6sb" path="res://scenes/ui/main menu/main_menu.tscn" id="2_5i0tg"]
+[ext_resource type="Shader" uid="uid://dfatdyv6gis2i" path="res://resources/shaders/shadow.gdshader" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://dl4sj2ilqlogo" path="res://scenes/ui/options menu/options_menu.tscn" id="3_bdhmt"]
+[ext_resource type="PackedScene" uid="uid://v8ckw1q6htbl" path="res://scenes/cursor/cursor.tscn" id="4_kelw5"]
+[ext_resource type="Texture2D" uid="uid://cyo1r4tuly0gm" path="res://resources/graphics/universal/transition_squares.png" id="7_87uf6"]
+[ext_resource type="Shader" uid="uid://ck33xsi37cbm8" path="res://resources/shaders/transition.gdshader" id="7_bdhmt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kelw5"]
+shader = ExtResource("3_0sr1o")
+shader_parameter/background_colors = PackedColorArray(0.14, 0.14, 0.14, 1, 0.15, 0.15, 0.15, 1)
+shader_parameter/shadow_color = Color(0.1, 0.1, 0.1, 1)
+shader_parameter/offset_in_pixels = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_87uf6"]
+shader = ExtResource("7_bdhmt")
+shader_parameter/transition_texture = ExtResource("7_87uf6")
+shader_parameter/progress = 0.0
+shader_parameter/smoothness = 0.1
+shader_parameter/color = Color(0.101961, 0.101961, 0.101961, 1)
+shader_parameter/inverted = false
+
+[node name="Game" type="Node"]
+script = ExtResource("1_ar3n7")
+screen_map = Dictionary[int, PackedScene]({
+1: ExtResource("2_5i0tg"),
+2: ExtResource("3_bdhmt")
+})
+
+[node name="Gameplay" type="Node" parent="."]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="CursorLayer" type="CanvasLayer" parent="."]
+layer = 126
+
+[node name="Cursor" parent="CursorLayer" instance=ExtResource("4_kelw5")]
+unique_name_in_owner = true
+
+[node name="ShadowOverlayLayer" type="CanvasLayer" parent="."]
+layer = 127
+
+[node name="ShadowOverlay" type="ColorRect" parent="ShadowOverlayLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_kelw5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TransitionOverlayLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="TransitionOverlay" type="ColorRect" parent="TransitionOverlayLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_87uf6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.101961, 0.101961, 0.101961, 1)

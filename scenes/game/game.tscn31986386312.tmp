@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvprdcd62llld"]
+
+[ext_resource type="Script" uid="uid://d2xbhxa5y57ci" path="res://scenes/game/game.gd" id="1_ar3n7"]
+[ext_resource type="PackedScene" uid="uid://dl4sj2ilqlogo" path="res://scenes/ui/options menu/options_menu.tscn" id="2_7h61r"]
+[ext_resource type="PackedScene" uid="uid://cdgkxna0ctcr8" path="res://scenes/gameplay/arena/arena.tscn" id="2_lfrn8"]
+[ext_resource type="Shader" uid="uid://dfatdyv6gis2i" path="res://resources/shaders/shadow.gdshader" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://v8ckw1q6htbl" path="res://scenes/cursor/cursor.tscn" id="4_kelw5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kelw5"]
+shader = ExtResource("3_0sr1o")
+shader_parameter/background_colors = PackedColorArray(0.227451, 0.231373, 0.239216, 1, 0.219608, 0.223529, 0.231373, 1)
+shader_parameter/shadow_color = Color(0.188235, 0.188235, 0.207843, 1)
+shader_parameter/offset_in_pixels = Vector2(2, 2)
+
+[node name="Game" type="Node"]
+script = ExtResource("1_ar3n7")
+arena_scene = ExtResource("2_lfrn8")
+
+[node name="Gameplay" type="Node" parent="."]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="OptionsMenu" parent="UI" instance=ExtResource("2_7h61r")]
+
+[node name="CursorLayer" type="CanvasLayer" parent="."]
+layer = 127
+
+[node name="Cursor" parent="CursorLayer" instance=ExtResource("4_kelw5")]
+
+[node name="ShadowOverlay" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Overlay" type="ColorRect" parent="ShadowOverlay"]
+material = SubResource("ShaderMaterial_kelw5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

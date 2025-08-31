@@ -11,5 +11,33 @@ config_version=5
 [application]
 
 config/name="PIPLOP"
+config/version="0.1.0"
+run/main_scene="uid://cvprdcd62llld"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+G="*res://scenes/autoloads/globals/globals.tscn"
+Utils="*res://scenes/autoloads/utils/utils.tscn"
+OptionsManager="*res://scenes/autoloads/options manager/options_manager.tscn"
+Repository="*res://scenes/autoloads/repository/repository.tscn"
+Run="*res://scenes/autoloads/run/run.tscn"
+InstanceManager="*res://scenes/autoloads/instance manager/instance_manager.tscn"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom="uid://c064rnlc1b5h1"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://8hr5yfgj6ff2"]
+
+[ext_resource type="Script" uid="uid://qt4br7lflb6u" path="res://scenes/ui/_components/better h slider/better_h_slider.gd" id="1_siwaa"]
+
+[node name="BetterHSlider" type="HSlider"]
+custom_minimum_size = Vector2(100, 0)
+value = 50.0
+script = ExtResource("1_siwaa")

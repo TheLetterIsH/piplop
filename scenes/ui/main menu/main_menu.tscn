@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://noowbyb8x6sb"]
+
+[ext_resource type="Shader" uid="uid://bjw60mcrtyypl" path="res://resources/shaders/moving_tiles.gdshader" id="1_gcgm2"]
+[ext_resource type="Script" uid="uid://cpvrsr4n6hkr3" path="res://scenes/ui/main menu/main_menu.gd" id="1_sfmgl"]
+[ext_resource type="Texture2D" uid="uid://do3tctgujpdcm" path="res://resources/graphics/universal/checkerboard_64px.png" id="2_fdsk3"]
+[ext_resource type="PackedScene" uid="uid://d15jrurv3hpew" path="res://scenes/ui/_components/better label/better_label.tscn" id="3_sfmgl"]
+[ext_resource type="PackedScene" uid="uid://5qpnpuptoyui" path="res://scenes/ui/_components/better button/better_button.tscn" id="4_dord1"]
+[ext_resource type="FontFile" uid="uid://bgbee3o3d7sds" path="res://resources/fonts/more_15.ttf" id="5_sfmgl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13db8"]
+shader = ExtResource("1_gcgm2")
+shader_parameter/speed = 0.5
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_sfmgl")
+
+[node name="Background" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_13db8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fdsk3")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TitleLabel" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_sfmgl")]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("5_sfmgl")
+theme_override_font_sizes/normal_font_size = 64
+text = "[wave amp=30.0 freq=5.0 connected=1]PIPLOP[/wave]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="PlayButton" parent="MarginContainer/VBoxContainer/ButtonsVBoxContainer" instance=ExtResource("4_dord1")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "play"
+hover_color = Color(0.313726, 0.819608, 0.431373, 1)
+
+[node name="OptionsButton" parent="MarginContainer/VBoxContainer/ButtonsVBoxContainer" instance=ExtResource("4_dord1")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "options"
+hover_color = Color(0.254902, 0.619608, 0.929412, 1)
+
+[node name="CreditsButton" parent="MarginContainer/VBoxContainer/ButtonsVBoxContainer" instance=ExtResource("4_dord1")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "credits"
+hover_color = Color(0.933333, 0.752941, 0.258824, 1)
+
+[node name="QuitButton" parent="MarginContainer/VBoxContainer/ButtonsVBoxContainer" instance=ExtResource("4_dord1")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "quit"
+hover_color = Color(0.870588, 0.262745, 0.262745, 1)

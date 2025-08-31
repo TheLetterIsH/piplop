@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cnjg15g4xq5th"]
+
+[ext_resource type="FontFile" uid="uid://tchg8itn72tu" path="res://resources/fonts/retro_pixel_thick.ttf" id="1_xkqsq"]
+
+[resource]
+base_font = ExtResource("1_xkqsq")
+spacing_top = -4
+spacing_bottom = -2
