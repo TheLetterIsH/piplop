@@ -67,5 +67,5 @@ func on_pressed() -> void:
 	# SoundManager.play_sound_with_pitch(Repository.sound_ui_click, randf_range(0.9, 1.1))
 
 
-func on_toggled(toggled_on: bool) -> void:
+func on_toggled(_toggled_on: bool) -> void:
 	pass

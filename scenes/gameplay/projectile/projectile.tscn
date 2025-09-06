@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://fsste7crnh6y"]
+
+[ext_resource type="Script" uid="uid://cqaceuyf6kaby" path="res://scenes/gameplay/projectile/projectile.gd" id="1_pckrf"]
+[ext_resource type="Texture2D" uid="uid://cgkpv1ualo0qw" path="res://scenes/gameplay/projectile/projectile.png" id="2_5g3sj"]
+[ext_resource type="PackedScene" uid="uid://b2rikopbbgogu" path="res://scenes/gameplay/_components/trigger/trigger.tscn" id="2_o2ki3"]
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 16
+collision_mask = 129
+script = ExtResource("1_pckrf")
+
+[node name="Trigger" parent="." instance=ExtResource("2_o2ki3")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5g3sj")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-6, 2, -6, -2, -4, -4, 4, -4, 6, -2, 6, 2, 4, 4, -4, 4)

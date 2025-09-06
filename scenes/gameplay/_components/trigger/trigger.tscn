@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2rikopbbgogu"]
+
+[ext_resource type="Script" uid="uid://6grmxegu1cox" path="res://scenes/gameplay/_components/trigger/trigger.gd" id="1_p6uac"]
+
+[node name="Trigger" type="Node"]
+script = ExtResource("1_p6uac")

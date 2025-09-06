@@ -6,7 +6,7 @@ enum State {
 	NONE,
 	SPLASH,
 	MAIN_MENU,
-	PERK_SELECTION,
+	PASSIVE_SELECTION,
 	ARENA,
 	GAME_OVER,
 }
@@ -49,7 +49,7 @@ func _ready() -> void:
 func initialize() -> void:
 	G.game = self
 	
-	change_state(State.MAIN_MENU)
+	change_state(State.ARENA)
 
 
 func connect_signals() -> void:
@@ -100,7 +100,7 @@ func change_state(next_state: State) -> void:
 	await transition_out()
 
 
-# SPLASH
+#region SPLASH
 func enter_splash_state() -> void:
 	pass
 
@@ -111,9 +111,10 @@ func splash_state() -> void:
 
 func exit_splash_state() -> void:
 	pass
+#endregion
 
 
-# MAIN_MENU
+#region MAIN_MENU
 func enter_main_menu_state() -> void:
 	main_menu = load_screen(G.Screen.MAIN_MENU, ui) as MainMenu
 
@@ -124,9 +125,10 @@ func main_menu_state() -> void:
 
 func exit_main_menu_state() -> void:
 	unload_screen(main_menu)
+#endregion
 
 
-# ARENA
+#region ARENA
 func enter_arena_state() -> void:
 	arena = load_screen(G.Screen.ARENA, gameplay)
 
@@ -137,9 +139,10 @@ func arena_state() -> void:
 
 func exit_arena_state() -> void:
 	unload_screen(arena)
+#endregion
 
 
-# GAME_OVER
+#region GAME_OVER
 func enter_game_over_state() -> void:
 	pass
 
@@ -150,9 +153,10 @@ func game_over_state() -> void:
 
 func exit_game_over_state() -> void:
 	pass
+#endregion
 
 
-# SCREEN MANAGEMENT
+#region SCREEN MANAGEMENT
 func load_screen(id: G.Screen, parent: Node) -> Node:
 	if screen_map.size() == 0:
 		return
@@ -209,7 +213,7 @@ func transition_out() -> void:
 	await tween.finished
 	
 	transition_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
+#endregion
 
 func quit() -> void:
 	get_tree().quit()

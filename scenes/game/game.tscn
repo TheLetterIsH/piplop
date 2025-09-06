@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvprdcd62llld"]
+[gd_scene load_steps=11 format=3 uid="uid://cvprdcd62llld"]
 
 [ext_resource type="Script" uid="uid://d2xbhxa5y57ci" path="res://scenes/game/game.gd" id="1_ar3n7"]
 [ext_resource type="PackedScene" uid="uid://noowbyb8x6sb" path="res://scenes/ui/main menu/main_menu.tscn" id="2_5i0tg"]
 [ext_resource type="Shader" uid="uid://dfatdyv6gis2i" path="res://resources/shaders/shadow.gdshader" id="3_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://dl4sj2ilqlogo" path="res://scenes/ui/options menu/options_menu.tscn" id="3_bdhmt"]
+[ext_resource type="PackedScene" uid="uid://cytrgdak01dv5" path="res://scenes/gameplay/arena/arena.tscn" id="4_87uf6"]
 [ext_resource type="PackedScene" uid="uid://v8ckw1q6htbl" path="res://scenes/cursor/cursor.tscn" id="4_kelw5"]
 [ext_resource type="Texture2D" uid="uid://cyo1r4tuly0gm" path="res://resources/graphics/universal/transition_squares.png" id="7_87uf6"]
 [ext_resource type="Shader" uid="uid://ck33xsi37cbm8" path="res://resources/shaders/transition.gdshader" id="7_bdhmt"]
@@ -24,9 +25,10 @@ shader_parameter/inverted = false
 
 [node name="Game" type="Node"]
 script = ExtResource("1_ar3n7")
-screen_map = Dictionary[int, PackedScene]({
+screen_map = Dictionary[Variant, PackedScene]({
 1: ExtResource("2_5i0tg"),
-2: ExtResource("3_bdhmt")
+2: ExtResource("3_bdhmt"),
+4: ExtResource("4_87uf6")
 })
 
 [node name="Gameplay" type="Node" parent="."]

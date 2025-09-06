@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://boq5kts6iuqxv"]
+[gd_scene load_steps=3 format=3 uid="uid://boq5kts6iuqxv"]
 
 [ext_resource type="Script" uid="uid://da08eyiemmx83" path="res://scenes/autoloads/repository/repository.gd" id="1_k68ni"]
+[ext_resource type="PackedScene" uid="uid://fsste7crnh6y" path="res://scenes/gameplay/projectile/projectile.tscn" id="2_del4l"]
 
 [node name="Repository" type="Node"]
 script = ExtResource("1_k68ni")
+projectile_scene = ExtResource("2_del4l")
